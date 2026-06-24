@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5002:5000"
+    volumes:
+      - ./data:/app/data
+      # для разработки: раскомментируйте, чтобы видеть изменения в шаблонах/статике без пересборки
+      # - ./templates:/app/templates
+      # - ./static:/app/static
+    environment:
+      - WOWFEST_SHEETS_WEBHOOK_URL=${WOWFEST_SHEETS_WEBHOOK_URL:-}
+      - WOWFEST_SPREADSHEET_ID=${WOWFEST_SPREADSHEET_ID:-}
+      - WOWFEST_GA4_ID=${WOWFEST_GA4_ID:-}
+      - WOWFEST_FB_PIXEL_ID=${WOWFEST_FB_PIXEL_ID:-}
+    restart: unless-stopped

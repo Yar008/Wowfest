@@ -1,0 +1,7 @@
+Flask==3.0.3
+gunicorn==22.0.0
+requests==2.32.3
+
+# Нужны только для способа 2 (service account + gspread) — раскомментируйте при необходимости
+# gspread==6.1.2
+# google-auth==2.32.0
