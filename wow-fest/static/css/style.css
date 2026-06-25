@@ -285,9 +285,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero__decor-flowers {
   position: absolute;
-  top: 10%;
-  right: 10%;
-  width: 460px;
+  top: -30%;
+  right: 5%;
+  width: 1000px;
   opacity: 0.95;
   z-index: 1;
 }
