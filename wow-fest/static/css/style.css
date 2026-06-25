@@ -286,14 +286,14 @@ img { max-width: 100%; height: auto; display: block; }
 .hero__decor-flowers {
   position: absolute;
   top: -30%;
-  right: 5%;
-  width: 1000px;
+  right: 1%;
+  width: 750px;
   opacity: 0.95;
   z-index: 1;
 }
 .hero__decor-disco {
   position: absolute;
-  top: 24%;
+  top: 10%;
   right: 6%;
   width: 160px;
   height: auto;
