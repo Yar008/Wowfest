@@ -261,7 +261,7 @@ img { max-width: 100%; height: auto; display: block; }
   position: relative;
   padding-top: calc(var(--nav-h) + 48px);
   padding-bottom: 0;
-  overflow: hidden;
+  overflow: visible;
   background: linear-gradient(108deg,
     #f0227f 0%,
     #ec1e79 45%,
@@ -293,12 +293,13 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero__decor-disco {
   position: absolute;
-  top: 24%;
-  right: 6%;
-  width: 160px;
+  top: 28%;
+  right: -6%;
+  width: 140px;
   height: auto;
   filter: drop-shadow(0 14px 30px rgba(0,0,0,.4));
-  z-index: 2;
+  z-index: 3;
+  pointer-events: none;
 }
 .hero__inner {
   position: relative;
