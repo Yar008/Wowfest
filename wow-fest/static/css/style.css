@@ -960,8 +960,8 @@ img { max-width: 100%; height: auto; display: block; }
   .hero__content h1 { font-size: clamp(26px, 7vw, 38px); }
   .hero__ctas { flex-direction: column; align-items: center; padding-bottom: 20px; }
   .hero__ctas .btn { width: calc(100% - 80px); max-width: 300px; }
-  .hero__decor-flowers { width: 260px; top: 34%; right: -4%; opacity: 0.65; }
-  .hero__decor-disco { width: 56px; top: 46%; right: 18%; }
+  .hero__decor-flowers { width: 260px; top: auto; bottom: 0; right: -4%; opacity: 0.65; }
+  .hero__decor-disco { width: 56px; top: auto; bottom: 22%; right: 10%; }
 
   /* Float buttons: slightly smaller on mobile to reduce footprint */
   .float-btn { width: 44px; height: 44px; }
