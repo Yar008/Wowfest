@@ -1,0 +1,23 @@
+<svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="petalShade" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#ffe27a"/>
+      <stop offset="100%" stop-color="#f7c948"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(150,150)">
+    <!-- 8 rounded petals arranged in a circle -->
+    <g fill="url(#petalShade)">
+      <ellipse cx="0" cy="-78" rx="38" ry="50"/>
+      <ellipse cx="55" cy="-55" rx="38" ry="50" transform="rotate(45 55 -55)"/>
+      <ellipse cx="78" cy="0" rx="38" ry="50" transform="rotate(90 78 0)"/>
+      <ellipse cx="55" cy="55" rx="38" ry="50" transform="rotate(135 55 55)"/>
+      <ellipse cx="0" cy="78" rx="38" ry="50" transform="rotate(180 0 78)"/>
+      <ellipse cx="-55" cy="55" rx="38" ry="50" transform="rotate(225 -55 55)"/>
+      <ellipse cx="-78" cy="0" rx="38" ry="50" transform="rotate(270 -78 0)"/>
+      <ellipse cx="-55" cy="-55" rx="38" ry="50" transform="rotate(315 -55 -55)"/>
+    </g>
+    <!-- center, drawn last so it sits on top -->
+    <circle cx="0" cy="0" r="32" fill="#ec1e79"/>
+  </g>
+</svg>

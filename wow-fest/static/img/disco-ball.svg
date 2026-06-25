@@ -1,0 +1,64 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="discoSphere" cx="36%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="30%" stop-color="#e3ecf5"/>
+      <stop offset="65%" stop-color="#aab8cc"/>
+      <stop offset="100%" stop-color="#4f5a6c"/>
+    </radialGradient>
+    <radialGradient id="discoGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hangCord" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cfcfcf"/>
+      <stop offset="100%" stop-color="#8a8a8a"/>
+    </linearGradient>
+    <clipPath id="ballClip">
+      <circle cx="120" cy="128" r="96"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="120" cy="128" r="120" fill="url(#discoGlow)"/>
+  <line x1="120" y1="0" x2="120" y2="22" stroke="url(#hangCord)" stroke-width="3"/>
+  <circle cx="120" cy="128" r="96" fill="url(#discoSphere)"/>
+
+  <!-- mosaic tile grid clipped to sphere -->
+  <g clip-path="url(#ballClip)">
+    <g stroke="#3f485a" stroke-width="1" opacity="0.5">
+      <!-- vertical-ish facet lines following sphere curvature -->
+      <path d="M120 32 V224" fill="none"/>
+      <path d="M90 35 Q70 128 90 221" fill="none"/>
+      <path d="M150 35 Q170 128 150 221" fill="none"/>
+      <path d="M62 48 Q40 128 62 208" fill="none"/>
+      <path d="M178 48 Q200 128 178 208" fill="none"/>
+      <path d="M38 78 Q26 128 38 178" fill="none"/>
+      <path d="M202 78 Q214 128 202 178" fill="none"/>
+      <!-- horizontal-ish facet rings -->
+      <path d="M26 100 Q120 78 214 100" fill="none"/>
+      <path d="M26 128 H214" fill="none"/>
+      <path d="M26 156 Q120 178 214 156" fill="none"/>
+      <path d="M40 178 Q120 200 200 178" fill="none"/>
+      <path d="M40 78 Q120 56 200 78" fill="none"/>
+      <path d="M58 200 Q120 216 182 200" fill="none"/>
+      <path d="M58 56 Q120 40 182 56" fill="none"/>
+    </g>
+    <!-- tiny mirror-tile sparkle squares scattered across facets -->
+    <g fill="#ffffff">
+      <rect x="76" y="56" width="5" height="5" opacity="0.95" transform="rotate(18 78 58)"/>
+      <rect x="105" y="50" width="4" height="4" opacity="0.7" transform="rotate(-10 107 52)"/>
+      <rect x="148" y="64" width="5" height="5" opacity="0.85" transform="rotate(25 150 66)"/>
+      <rect x="172" y="98" width="4" height="4" opacity="0.6" transform="rotate(-20 174 100)"/>
+      <rect x="160" y="150" width="5" height="5" opacity="0.7" transform="rotate(12 162 152)"/>
+      <rect x="120" y="186" width="4" height="4" opacity="0.6" transform="rotate(8 122 188)"/>
+      <rect x="80" y="170" width="5" height="5" opacity="0.65" transform="rotate(-15 82 172)"/>
+      <rect x="52" y="132" width="4" height="4" opacity="0.55" transform="rotate(20 54 134)"/>
+      <rect x="62" y="100" width="4" height="4" opacity="0.6" transform="rotate(-8 64 102)"/>
+      <rect x="130" y="110" width="4" height="4" opacity="0.7"/>
+      <rect x="100" y="130" width="4" height="4" opacity="0.55"/>
+    </g>
+  </g>
+
+  <!-- soft top-left specular highlight (glass sheen, above clip for extra glow) -->
+  <ellipse cx="90" cy="88" rx="36" ry="24" fill="#ffffff" opacity="0.3"/>
+</svg>

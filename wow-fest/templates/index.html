@@ -52,6 +52,10 @@
 <!-- ===== HERO ===== -->
 <header class="hero">
   <div class="hero__bg"></div>
+  <div class="hero__decor" aria-hidden="true">
+    <img src="{{ url_for('static', filename='img/flower-yellow.svg') }}" class="hero__decor-flower" alt="">
+    <img src="{{ url_for('static', filename='img/disco-ball.svg') }}" class="hero__decor-disco" alt="">
+  </div>
   <div class="hero__bocharoff" aria-hidden="true">
     <img src="{{ url_for('static', filename='img/Bocharoff1.png') }}" alt="">
   </div>
@@ -61,8 +65,8 @@
       <p class="hero__subtitle">Фестиваль для HR и корпоративных заказчиков. Живые демонстрации программ, встречи с подрядчиками, тренды корпоративных мероприятий и гала-ужин.</p>
       <div class="hero__meta">
         <div class="hero__meta-item hero__meta-item--date">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          <strong>14 ИЮЛЯ</strong>
+          <img src="{{ url_for('static', filename='img/calendar-icon.svg') }}" alt="" width="20" height="20" aria-hidden="true">
+          <strong>14 <span class="text-yellow">ИЮЛЯ</span></strong>
         </div>
         <div class="hero__meta-item hero__meta-item--loc">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -80,10 +84,6 @@
     </div>
     <div class="hero__image">
       <img src="{{ url_for('static', filename='img/woman.png') }}" alt="WOW! Ивент-Фест 2026" loading="eager">
-      <div class="hero__seats">
-        <span class="hero__seats-label">До фестиваля<br>осталось мест</span>
-        <span class="hero__seats-number" id="seats-remaining">{{ remaining_seats }}</span>
-      </div>
     </div>
   </div>
 </header>

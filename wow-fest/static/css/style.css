@@ -263,11 +263,9 @@ img { max-width: 100%; height: auto; display: block; }
   padding-bottom: 0;
   overflow: hidden;
   background: linear-gradient(108deg,
-    #ec1e79 0%,
-    #8a1860 22%,
-    #3d1250 48%,
-    #1e1440 72%,
-    #12102a 100%
+    #f0227f 0%,
+    #ec1e79 45%,
+    #e01871 100%
   );
   border-radius: 0 0 40px 40px;
 }
@@ -278,6 +276,27 @@ img { max-width: 100%; height: auto; display: block; }
     radial-gradient(ellipse at 8% 10%, rgba(255,255,255,.18) 0%, transparent 38%),
     radial-gradient(ellipse at 55% 100%, rgba(0,0,0,.28) 0%, transparent 55%);
   z-index: 0;
+}
+.hero__decor {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero__decor-flower {
+  position: absolute;
+  top: 6%;
+  right: 6%;
+  width: 200px;
+  opacity: 0.95;
+}
+.hero__decor-disco {
+  position: absolute;
+  top: 28%;
+  right: 16%;
+  width: 170px;
+  filter: drop-shadow(0 14px 30px rgba(0,0,0,.35));
 }
 .hero__inner {
   position: relative;
@@ -916,6 +935,8 @@ img { max-width: 100%; height: auto; display: block; }
   .hero__inner { flex-direction: column; text-align: center; min-height: 0; align-items: center; }
   .hero__content { text-align: center; }
   .hero__image { width: 70%; max-width: 320px; align-self: center; }
+  .hero__decor-flower { width: 110px; top: 4%; right: 2%; opacity: 0.85; }
+  .hero__decor-disco { width: 90px; top: 14%; right: 8%; }
   .hero__seats { display: none; }
   .hero__subtitle { margin: 0 auto 28px; }
   .hero__meta { align-items: center; }
