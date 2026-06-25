@@ -70,10 +70,6 @@ def _row(payload):
         payload.get("position", ""),
         payload.get("phone", ""),
         payload.get("email", ""),
-        payload.get("source", "main_form"),
-        payload.get("utm_source", ""),
-        payload.get("utm_medium", ""),
-        payload.get("utm_campaign", ""),
     ]
 
 

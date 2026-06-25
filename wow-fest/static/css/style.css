@@ -2,9 +2,9 @@
    CSS VARIABLES & RESET
    ============================================================ */
 :root {
-  --navy:       #12102a;
-  --navy-mid:   #1a1535;
-  --navy-light: #221d42;
+  --navy:       #0b0a1c;
+  --navy-mid:   #110f2c;
+  --navy-light: #181537;
   --pink:       #ec1e79;
   --pink-light: #ff5fa6;
   --yellow:     #f7c948;
@@ -29,17 +29,17 @@ body {
   color: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
-  /* Seamless gradient flows through all transparent sections */
+  /* Seamless gradient flows through all transparent sections — darker variant */
   background: linear-gradient(180deg,
-    #12102a 0%,
-    #12102a 7%,
-    #141341 18%,
-    #181750 34%,
-    #1b1a56 49%,
-    #1b1853 63%,
-    #17164a 76%,
-    #12102a 88%,
-    #0e0c22 100%
+    #0b0a1c 0%,
+    #0b0a1c 7%,
+    #0d0c2c 18%,
+    #101038 34%,
+    #12123d 49%,
+    #12113a 63%,
+    #0f0e33 76%,
+    #0b0a1c 88%,
+    #07060f 100%
   );
   min-height: 100vh;
 }

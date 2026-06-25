@@ -26,7 +26,7 @@ function doPost(e) {
     if (sheet.getLastRow() === 0) {
       sheet.appendRow([
         'Дата', 'Гость 1', 'Гость 2', 'Компания', 'Должность',
-        'Телефон', 'E-mail', 'Источник', 'utm_source', 'utm_medium', 'utm_campaign'
+        'Телефон', 'E-mail'
       ]);
     }
 
