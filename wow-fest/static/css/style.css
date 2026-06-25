@@ -284,19 +284,21 @@ img { max-width: 100%; height: auto; display: block; }
   pointer-events: none;
   overflow: hidden;
 }
-.hero__decor-flower {
+.hero__decor-flowers {
   position: absolute;
-  top: 6%;
-  right: 6%;
-  width: 200px;
+  top: -4%;
+  right: -6%;
+  width: 340px;
   opacity: 0.95;
+  z-index: 1;
 }
 .hero__decor-disco {
   position: absolute;
-  top: 28%;
-  right: 16%;
+  top: 4%;
+  right: 4%;
   width: 170px;
   filter: drop-shadow(0 14px 30px rgba(0,0,0,.35));
+  z-index: 2;
 }
 .hero__inner {
   position: relative;
@@ -349,27 +351,6 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1;
   color: var(--white);
 }
-
-/* BOCHAROFF1 vertical branding — right edge, rotated CCW (B at top, F at bottom) */
-.hero__bocharoff {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-.hero__bocharoff img {
-  position: absolute;
-  right: -90px;
-  top: 55%;
-  width: 700px;
-  height: auto;
-  max-width: none;
-  display: block;
-  transform: translateY(-50%) rotate(90deg);
-}
-
-/* Mobile bocharoff is hidden on desktop — shown only in ≤992px breakpoint */
-.hero__bocharoff-mobile { display: none; }
 
 /* Pink hero: text/element overrides */
 .hero .text-pink { color: var(--white); }
@@ -935,30 +916,12 @@ img { max-width: 100%; height: auto; display: block; }
   .hero__inner { flex-direction: column; text-align: center; min-height: 0; align-items: center; }
   .hero__content { text-align: center; }
   .hero__image { width: 70%; max-width: 320px; align-self: center; }
-  .hero__decor-flower { width: 110px; top: 4%; right: 2%; opacity: 0.85; }
+  .hero__decor-flowers { width: 190px; top: 0%; right: -4%; opacity: 0.85; }
   .hero__decor-disco { width: 90px; top: 14%; right: 8%; }
-  .hero__seats { display: none; }
   .hero__subtitle { margin: 0 auto 28px; }
   .hero__meta { align-items: center; }
   .hero__meta-item--loc { justify-content: center; align-items: flex-start; }
   .hero__ctas { justify-content: center; padding-bottom: 24px; }
-
-  /* Bocharoff: hide rotated desktop layer, show horizontal mobile band */
-  .hero__bocharoff { display: none; }
-  .hero__bocharoff-mobile {
-    display: block;
-    /* bleed past the container's 20px horizontal padding */
-    width: calc(100% + 40px);
-    margin-left: -20px;
-    margin-right: -20px;
-    margin-bottom: 0;
-  }
-  .hero__bocharoff-mobile img {
-    width: 100%;
-    height: auto;
-    display: block;
-    max-width: 100%;
-  }
 
   /* Category grid: smaller fixed width */
   .cat-item { flex: 0 0 140px; width: 140px; }
@@ -997,12 +960,7 @@ img { max-width: 100%; height: auto; display: block; }
   /* Buttons centered: equal left/right within container, width capped so they stay clear of the fixed float stack */
   .hero__ctas { flex-direction: column; align-items: center; padding-bottom: 20px; }
   .hero__ctas .btn { width: calc(100% - 80px); max-width: 300px; }
-  /* Container padding is 16px at ≤600px — adjust bleed accordingly */
-  .hero__bocharoff-mobile {
-    width: calc(100% + 32px);
-    margin-left: -16px;
-    margin-right: -16px;
-  }
+
   /* Float buttons: slightly smaller on mobile to reduce footprint */
   .float-btn { width: 44px; height: 44px; }
   .float-stack { gap: 8px; }

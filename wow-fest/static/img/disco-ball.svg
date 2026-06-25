@@ -1,32 +1,32 @@
 <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="discoSphere" cx="36%" cy="30%" r="75%">
+    <radialGradient id="silverSphere" cx="35%" cy="28%" r="80%">
       <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="30%" stop-color="#e3ecf5"/>
-      <stop offset="65%" stop-color="#aab8cc"/>
-      <stop offset="100%" stop-color="#4f5a6c"/>
+      <stop offset="20%" stop-color="#f4f6f8"/>
+      <stop offset="45%" stop-color="#cdd3da"/>
+      <stop offset="70%" stop-color="#9aa1ab"/>
+      <stop offset="100%" stop-color="#5b6066"/>
     </radialGradient>
-    <radialGradient id="discoGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.5"/>
+    <radialGradient id="silverGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
       <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="hangCord" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#cfcfcf"/>
+      <stop offset="0%" stop-color="#d8d8d8"/>
       <stop offset="100%" stop-color="#8a8a8a"/>
     </linearGradient>
-    <clipPath id="ballClip">
+    <clipPath id="ballClip2">
       <circle cx="120" cy="128" r="96"/>
     </clipPath>
   </defs>
 
-  <circle cx="120" cy="128" r="120" fill="url(#discoGlow)"/>
+  <circle cx="120" cy="128" r="124" fill="url(#silverGlow)"/>
   <line x1="120" y1="0" x2="120" y2="22" stroke="url(#hangCord)" stroke-width="3"/>
-  <circle cx="120" cy="128" r="96" fill="url(#discoSphere)"/>
+  <circle cx="120" cy="128" r="96" fill="url(#silverSphere)"/>
 
-  <!-- mosaic tile grid clipped to sphere -->
-  <g clip-path="url(#ballClip)">
-    <g stroke="#3f485a" stroke-width="1" opacity="0.5">
-      <!-- vertical-ish facet lines following sphere curvature -->
+  <!-- mosaic tile grid -->
+  <g clip-path="url(#ballClip2)">
+    <g stroke="#3a3f47" stroke-width="1.1" opacity="0.6">
       <path d="M120 32 V224" fill="none"/>
       <path d="M90 35 Q70 128 90 221" fill="none"/>
       <path d="M150 35 Q170 128 150 221" fill="none"/>
@@ -34,7 +34,6 @@
       <path d="M178 48 Q200 128 178 208" fill="none"/>
       <path d="M38 78 Q26 128 38 178" fill="none"/>
       <path d="M202 78 Q214 128 202 178" fill="none"/>
-      <!-- horizontal-ish facet rings -->
       <path d="M26 100 Q120 78 214 100" fill="none"/>
       <path d="M26 128 H214" fill="none"/>
       <path d="M26 156 Q120 178 214 156" fill="none"/>
@@ -43,22 +42,28 @@
       <path d="M58 200 Q120 216 182 200" fill="none"/>
       <path d="M58 56 Q120 40 182 56" fill="none"/>
     </g>
-    <!-- tiny mirror-tile sparkle squares scattered across facets -->
+
+    <!-- bright mirror-tile squares scattered across facets, larger + crisper for a metallic look -->
     <g fill="#ffffff">
-      <rect x="76" y="56" width="5" height="5" opacity="0.95" transform="rotate(18 78 58)"/>
-      <rect x="105" y="50" width="4" height="4" opacity="0.7" transform="rotate(-10 107 52)"/>
-      <rect x="148" y="64" width="5" height="5" opacity="0.85" transform="rotate(25 150 66)"/>
-      <rect x="172" y="98" width="4" height="4" opacity="0.6" transform="rotate(-20 174 100)"/>
-      <rect x="160" y="150" width="5" height="5" opacity="0.7" transform="rotate(12 162 152)"/>
-      <rect x="120" y="186" width="4" height="4" opacity="0.6" transform="rotate(8 122 188)"/>
-      <rect x="80" y="170" width="5" height="5" opacity="0.65" transform="rotate(-15 82 172)"/>
-      <rect x="52" y="132" width="4" height="4" opacity="0.55" transform="rotate(20 54 134)"/>
-      <rect x="62" y="100" width="4" height="4" opacity="0.6" transform="rotate(-8 64 102)"/>
-      <rect x="130" y="110" width="4" height="4" opacity="0.7"/>
-      <rect x="100" y="130" width="4" height="4" opacity="0.55"/>
+      <rect x="74" y="54" width="7" height="7" opacity="1" transform="rotate(18 77 57)"/>
+      <rect x="103" y="48" width="5" height="5" opacity="0.8" transform="rotate(-10 105 50)"/>
+      <rect x="146" y="62" width="7" height="7" opacity="0.95" transform="rotate(25 149 65)"/>
+      <rect x="170" y="96" width="5" height="5" opacity="0.75" transform="rotate(-20 172 98)"/>
+      <rect x="158" y="148" width="6" height="6" opacity="0.85" transform="rotate(12 161 151)"/>
+      <rect x="119" y="184" width="5" height="5" opacity="0.7" transform="rotate(8 121 186)"/>
+      <rect x="78" y="168" width="6" height="6" opacity="0.8" transform="rotate(-15 80 170)"/>
+      <rect x="50" y="130" width="5" height="5" opacity="0.65" transform="rotate(20 52 132)"/>
+      <rect x="60" y="98" width="5" height="5" opacity="0.7" transform="rotate(-8 62 100)"/>
+      <rect x="129" y="108" width="5" height="5" opacity="0.8"/>
+      <rect x="98" y="128" width="5" height="5" opacity="0.65"/>
+      <rect x="140" y="135" width="4" height="4" opacity="0.6"/>
+      <rect x="85" y="115" width="4" height="4" opacity="0.55"/>
+      <rect x="110" y="160" width="5" height="5" opacity="0.6" transform="rotate(10 112 162)"/>
+      <rect x="155" y="115" width="4" height="4" opacity="0.6"/>
     </g>
   </g>
 
-  <!-- soft top-left specular highlight (glass sheen, above clip for extra glow) -->
-  <ellipse cx="90" cy="88" rx="36" ry="24" fill="#ffffff" opacity="0.3"/>
+  <!-- strong specular highlight for a glassy, metallic sheen -->
+  <ellipse cx="88" cy="84" rx="34" ry="22" fill="#ffffff" opacity="0.45"/>
+  <ellipse cx="78" cy="76" rx="14" ry="9" fill="#ffffff" opacity="0.6"/>
 </svg>
