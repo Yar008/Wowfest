@@ -285,7 +285,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero__decor-flowers {
   position: absolute;
-  top: -70%;
+  top: 70%;
   right: 1%;
   width: 750px;
   opacity: 0.95;
@@ -294,7 +294,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero__decor-disco {
   position: absolute;
   top: 40%;
-  right: 6%;
+  right: 1%;
   width: 160px;
   height: auto;
   filter: drop-shadow(0 14px 30px rgba(0,0,0,.4));
