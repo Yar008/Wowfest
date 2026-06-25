@@ -285,7 +285,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero__decor-flowers {
   position: absolute;
-  top: 25%;
+  top: 28%;
   right: 2%;
   width: 850px;
   opacity: 0.95;
@@ -293,8 +293,8 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero__decor-disco {
   position: absolute;
-  top: 40%;
-  right: 10%;
+  top: 24%;
+  right: 6%;
   width: 160px;
   height: auto;
   filter: drop-shadow(0 14px 30px rgba(0,0,0,.4));
@@ -916,8 +916,8 @@ img { max-width: 100%; height: auto; display: block; }
   .hero__inner { flex-direction: column; text-align: center; min-height: 0; align-items: center; }
   .hero__content { text-align: center; }
   .hero__image { width: 70%; max-width: 320px; align-self: center; }
-  .hero__decor-flowers { width: 190px; top: 0%; right: -4%; opacity: 0.85; }
-  .hero__decor-disco { width: 90px; top: 14%; right: 8%; }
+  .hero__decor-flowers { width: 320px; top: 32%; right: -8%; opacity: 0.85; }
+  .hero__decor-disco { width: 100px; top: 30%; right: 12%; }
   .hero__subtitle { margin: 0 auto 28px; }
   .hero__meta { align-items: center; }
   .hero__meta-item--loc { justify-content: center; align-items: flex-start; }
