@@ -57,7 +57,6 @@
   </div>
   <div class="container hero__inner">
     <div class="hero__content">
-      <p class="eyebrow">Первый корпоративный фестиваль для HR и организаторов мероприятий</p>
       <h1>Соберите идеи<br>для <span class="text-pink">корпоративов</span><br>и тимбилдингов <span class="text-yellow">2026</span><br>за один день</h1>
       <p class="hero__subtitle">Фестиваль для HR и корпоративных заказчиков. Живые демонстрации программ, встречи с подрядчиками, тренды корпоративных мероприятий и гала-ужин.</p>
       <div class="hero__meta">
@@ -81,9 +80,12 @@
     </div>
     <div class="hero__image">
       <img src="{{ url_for('static', filename='img/woman.png') }}" alt="WOW! Ивент-Фест 2026" loading="eager">
+      <div class="hero__seats">
+        <span class="hero__seats-label">До фестиваля<br>осталось мест</span>
+        <span class="hero__seats-number" id="seats-remaining">{{ remaining_seats }}</span>
+      </div>
     </div>
   </div>
-  <span id="seats-remaining" style="display:none" aria-hidden="true">{{ remaining_seats }}</span>
 </header>
 
 <!-- ===== ПОЧЕМУ СТОИТ ПОСЕТИТЬ ===== -->
