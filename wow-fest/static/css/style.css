@@ -282,21 +282,20 @@ img { max-width: 100%; height: auto; display: block; }
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  overflow: hidden;
 }
 .hero__decor-flowers {
   position: absolute;
-  top: 10%;
-  right: -8%;
-  width: 380px;
+  top: 8%;
+  right: 2%;
+  width: 320px;
   opacity: 0.95;
   z-index: 1;
 }
 .hero__decor-disco {
   position: absolute;
-  top: 13%;
-  right: 8%;
-  width: 200px;
+  top: 18%;
+  right: 10%;
+  width: 160px;
   height: auto;
   filter: drop-shadow(0 14px 30px rgba(0,0,0,.4));
   z-index: 2;
