@@ -1,83 +1,49 @@
-<svg viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 570 560" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="petalShadeA" cx="50%" cy="50%" r="60%">
+    <radialGradient id="pg" cx="50%" cy="50%" r="60%">
       <stop offset="0%" stop-color="#ffe27a"/>
       <stop offset="100%" stop-color="#f7c948"/>
     </radialGradient>
+    <!-- Single flower shape, reused below -->
+    <symbol id="fl" viewBox="0 0 300 300">
+      <g transform="translate(150,150)">
+        <g fill="url(#pg)">
+          <ellipse cx="0"   cy="-78" rx="38" ry="50"/>
+          <ellipse cx="55"  cy="-55" rx="38" ry="50" transform="rotate(45  55 -55)"/>
+          <ellipse cx="78"  cy="0"   rx="38" ry="50" transform="rotate(90  78  0)"/>
+          <ellipse cx="55"  cy="55"  rx="38" ry="50" transform="rotate(135 55  55)"/>
+          <ellipse cx="0"   cy="78"  rx="38" ry="50" transform="rotate(180 0   78)"/>
+          <ellipse cx="-55" cy="55"  rx="38" ry="50" transform="rotate(225 -55 55)"/>
+          <ellipse cx="-78" cy="0"   rx="38" ry="50" transform="rotate(270 -78 0)"/>
+          <ellipse cx="-55" cy="-55" rx="38" ry="50" transform="rotate(315 -55 -55)"/>
+        </g>
+        <circle cx="0" cy="0" r="32" fill="#ec1e79"/>
+      </g>
+    </symbol>
   </defs>
 
-  <!-- top-right flower, peeking above/behind where the ball will sit -->
-  <g transform="translate(430,70) scale(0.75)">
-    <g fill="url(#petalShadeA)">
-      <ellipse cx="0" cy="-78" rx="38" ry="50"/>
-      <ellipse cx="55" cy="-55" rx="38" ry="50" transform="rotate(45 55 -55)"/>
-      <ellipse cx="78" cy="0" rx="38" ry="50" transform="rotate(90 78 0)"/>
-      <ellipse cx="55" cy="55" rx="38" ry="50" transform="rotate(135 55 55)"/>
-      <ellipse cx="0" cy="78" rx="38" ry="50" transform="rotate(180 0 78)"/>
-      <ellipse cx="-55" cy="55" rx="38" ry="50" transform="rotate(225 -55 55)"/>
-      <ellipse cx="-78" cy="0" rx="38" ry="50" transform="rotate(270 -78 0)"/>
-      <ellipse cx="-55" cy="-55" rx="38" ry="50" transform="rotate(315 -55 -55)"/>
-    </g>
-    <circle cx="0" cy="0" r="32" fill="#ec1e79"/>
+  <!-- Upper-right flower (scale 0.75 → extent ≈96px, center 390,120 → fits [294,486]×[24,216]) -->
+  <g transform="rotate(12,390,120)">
+    <use href="#fl" x="294" y="24" width="192" height="192"/>
   </g>
 
-  <!-- big flower, right edge, behind ball position -->
-  <g transform="translate(470,230) scale(1)">
-    <g fill="url(#petalShadeA)">
-      <ellipse cx="0" cy="-78" rx="38" ry="50"/>
-      <ellipse cx="55" cy="-55" rx="38" ry="50" transform="rotate(45 55 -55)"/>
-      <ellipse cx="78" cy="0" rx="38" ry="50" transform="rotate(90 78 0)"/>
-      <ellipse cx="55" cy="55" rx="38" ry="50" transform="rotate(135 55 55)"/>
-      <ellipse cx="0" cy="78" rx="38" ry="50" transform="rotate(180 0 78)"/>
-      <ellipse cx="-55" cy="55" rx="38" ry="50" transform="rotate(225 -55 55)"/>
-      <ellipse cx="-78" cy="0" rx="38" ry="50" transform="rotate(270 -78 0)"/>
-      <ellipse cx="-55" cy="-55" rx="38" ry="50" transform="rotate(315 -55 -55)"/>
-    </g>
-    <circle cx="0" cy="0" r="32" fill="#ec1e79"/>
+  <!-- Large center-right flower (scale 0.95 → extent ≈122px, center 415,285 → fits [293,537]×[163,407]) -->
+  <g transform="rotate(-8,415,285)">
+    <use href="#fl" x="293" y="163" width="244" height="244"/>
   </g>
 
-  <!-- medium flower, following the left green arrow (down-left from the ball) -->
-  <g transform="translate(260,300) scale(0.7)">
-    <g fill="url(#petalShadeA)">
-      <ellipse cx="0" cy="-78" rx="38" ry="50"/>
-      <ellipse cx="55" cy="-55" rx="38" ry="50" transform="rotate(45 55 -55)"/>
-      <ellipse cx="78" cy="0" rx="38" ry="50" transform="rotate(90 78 0)"/>
-      <ellipse cx="55" cy="55" rx="38" ry="50" transform="rotate(135 55 55)"/>
-      <ellipse cx="0" cy="78" rx="38" ry="50" transform="rotate(180 0 78)"/>
-      <ellipse cx="-55" cy="55" rx="38" ry="50" transform="rotate(225 -55 55)"/>
-      <ellipse cx="-78" cy="0" rx="38" ry="50" transform="rotate(270 -78 0)"/>
-      <ellipse cx="-55" cy="-55" rx="38" ry="50" transform="rotate(315 -55 -55)"/>
-    </g>
-    <circle cx="0" cy="0" r="32" fill="#ec1e79"/>
+  <!-- Center-lower flower (scale 0.70 → extent ≈90px, center 265,345 → fits [175,355]×[255,435]) -->
+  <g transform="rotate(5,265,345)">
+    <use href="#fl" x="175" y="255" width="180" height="180"/>
   </g>
 
-  <!-- medium flower, following the right green arrow (down from the ball) -->
-  <g transform="translate(420,420) scale(0.6)">
-    <g fill="url(#petalShadeA)">
-      <ellipse cx="0" cy="-78" rx="38" ry="50"/>
-      <ellipse cx="55" cy="-55" rx="38" ry="50" transform="rotate(45 55 -55)"/>
-      <ellipse cx="78" cy="0" rx="38" ry="50" transform="rotate(90 78 0)"/>
-      <ellipse cx="55" cy="55" rx="38" ry="50" transform="rotate(135 55 55)"/>
-      <ellipse cx="0" cy="78" rx="38" ry="50" transform="rotate(180 0 78)"/>
-      <ellipse cx="-55" cy="55" rx="38" ry="50" transform="rotate(225 -55 55)"/>
-      <ellipse cx="-78" cy="0" rx="38" ry="50" transform="rotate(270 -78 0)"/>
-      <ellipse cx="-55" cy="-55" rx="38" ry="50" transform="rotate(315 -55 -55)"/>
-    </g>
-    <circle cx="0" cy="0" r="32" fill="#ec1e79"/>
+  <!-- Lower-right flower (scale 0.58 → extent ≈74px, center 438,452 → fits [364,512]×[378,526]) -->
+  <g transform="rotate(18,438,452)">
+    <use href="#fl" x="364" y="378" width="148" height="148"/>
   </g>
 
-  <!-- small flower, far left of cluster, lowest point of the left arrow -->
-  <g transform="translate(150,420) scale(0.4)">
-    <g fill="url(#petalShadeA)">
-      <ellipse cx="0" cy="-78" rx="38" ry="50"/>
-      <ellipse cx="55" cy="-55" rx="38" ry="50" transform="rotate(45 55 -55)"/>
-      <ellipse cx="78" cy="0" rx="38" ry="50" transform="rotate(90 78 0)"/>
-      <ellipse cx="55" cy="55" rx="38" ry="50" transform="rotate(135 55 55)"/>
-      <ellipse cx="0" cy="78" rx="38" ry="50" transform="rotate(180 0 78)"/>
-      <ellipse cx="-55" cy="55" rx="38" ry="50" transform="rotate(225 -55 55)"/>
-      <ellipse cx="-78" cy="0" rx="38" ry="50" transform="rotate(270 -78 0)"/>
-      <ellipse cx="-55" cy="-55" rx="38" ry="50" transform="rotate(315 -55 -55)"/>
-    </g>
-    <circle cx="0" cy="0" r="32" fill="#ec1e79"/>
+  <!-- Left accent flower (scale 0.40 → extent ≈51px, center 148,438 → fits [97,199]×[387,489]) -->
+  <g transform="rotate(-10,148,438)">
+    <use href="#fl" x="97" y="387" width="102" height="102"/>
   </g>
 </svg>
