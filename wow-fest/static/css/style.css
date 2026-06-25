@@ -285,20 +285,20 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .hero__decor-flowers {
   position: absolute;
-  top: 28%;
-  right: 2%;
-  width: 850px;
+  top: 20%;
+  right: 0%;
+  width: 580px;
   opacity: 0.95;
   z-index: 1;
 }
 .hero__decor-disco {
   position: absolute;
-  top: 28%;
-  right: -6%;
-  width: 140px;
+  top: 38%;
+  right: 5%;
+  width: 120px;
   height: auto;
   filter: drop-shadow(0 14px 30px rgba(0,0,0,.4));
-  z-index: 3;
+  z-index: 2;
   pointer-events: none;
 }
 .hero__inner {
@@ -917,8 +917,8 @@ img { max-width: 100%; height: auto; display: block; }
   .hero__inner { flex-direction: column; text-align: center; min-height: 0; align-items: center; }
   .hero__content { text-align: center; }
   .hero__image { width: 70%; max-width: 320px; align-self: center; }
-  .hero__decor-flowers { width: 320px; top: 32%; right: -8%; opacity: 0.85; }
-  .hero__decor-disco { width: 100px; top: 30%; right: 12%; }
+  .hero__decor-flowers { width: 260px; top: 50%; right: -4%; opacity: 0.75; }
+  .hero__decor-disco { width: 80px; top: 48%; right: 6%; }
   .hero__subtitle { margin: 0 auto 28px; }
   .hero__meta { align-items: center; }
   .hero__meta-item--loc { justify-content: center; align-items: flex-start; }
@@ -956,11 +956,12 @@ img { max-width: 100%; height: auto; display: block; }
 
   /* Hero */
   .hero { padding-top: calc(var(--nav-h) + 24px); }
-  .hero__image { width: 85%; max-width: 260px; }
+  .hero__image { width: 85%; max-width: 240px; }
   .hero__content h1 { font-size: clamp(26px, 7vw, 38px); }
-  /* Buttons centered: equal left/right within container, width capped so they stay clear of the fixed float stack */
   .hero__ctas { flex-direction: column; align-items: center; padding-bottom: 20px; }
   .hero__ctas .btn { width: calc(100% - 80px); max-width: 300px; }
+  .hero__decor-flowers { width: 200px; top: 52%; right: -2%; opacity: 0.6; }
+  .hero__decor-disco { width: 64px; top: 50%; right: 4%; }
 
   /* Float buttons: slightly smaller on mobile to reduce footprint */
   .float-btn { width: 44px; height: 44px; }
