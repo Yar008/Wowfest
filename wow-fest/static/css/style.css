@@ -294,7 +294,7 @@ img { max-width: 100%; height: auto; display: block; }
 .hero__decor-disco {
   position: absolute;
   top: 38%;
-  right: 16%;
+  right: 10%;
   width: 120px;
   height: auto;
   filter: drop-shadow(0 14px 30px rgba(0,0,0,.4));
