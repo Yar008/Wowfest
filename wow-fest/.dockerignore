@@ -1,0 +1,8 @@
+.env
+*.db
+data/
+service_account.json
+__pycache__/
+*.pyc
+.git/
+venv/

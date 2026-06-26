@@ -1,15 +1,33 @@
-import json
 import os
+import re
 import sqlite3
 from datetime import datetime, timezone
 
 from flask import Flask, render_template, request, jsonify
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 app = Flask(__name__)
 
+
+@app.after_request
+def set_security_headers(response):
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+    response.headers["Permissions-Policy"] = "geolocation=(), microphone=()"
+    return response
+
+
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=[],
+    storage_uri="memory://",
+)
+
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 DB_PATH = os.path.join(DATA_DIR, "registrations.db")
-SEATS_PATH = os.path.join(DATA_DIR, "seats.json")
 
 TOTAL_SEATS = 150  # измените под реальную вместимость площадки
 
@@ -38,26 +56,40 @@ def init_db():
         )
         """
     )
+    # Счётчик мест в SQLite — атомарно, безопасно при нескольких воркерах
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS seats_counter (
+            id INTEGER PRIMARY KEY CHECK (id = 1),
+            total INTEGER NOT NULL,
+            taken INTEGER NOT NULL DEFAULT 0
+        )
+        """
+    )
+    conn.execute(
+        "INSERT OR IGNORE INTO seats_counter (id, total, taken) VALUES (1, ?, 0)",
+        (TOTAL_SEATS,),
+    )
     conn.commit()
     conn.close()
 
-    if not os.path.exists(SEATS_PATH):
-        with open(SEATS_PATH, "w", encoding="utf-8") as f:
-            json.dump({"total": TOTAL_SEATS, "taken": 0}, f)
-
 
 def get_seats():
-    with open(SEATS_PATH, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data
+    conn = sqlite3.connect(DB_PATH)
+    row = conn.execute("SELECT total, taken FROM seats_counter WHERE id=1").fetchone()
+    conn.close()
+    return {"total": row[0], "taken": row[1]}
 
 
 def increment_seats():
-    data = get_seats()
-    data["taken"] += 1
-    with open(SEATS_PATH, "w", encoding="utf-8") as f:
-        json.dump(data, f)
-    return data
+    conn = sqlite3.connect(DB_PATH)
+    conn.execute(
+        "UPDATE seats_counter SET taken = taken + 1 WHERE id = 1"
+    )
+    conn.commit()
+    row = conn.execute("SELECT total, taken FROM seats_counter WHERE id=1").fetchone()
+    conn.close()
+    return {"total": row[0], "taken": row[1]}
 
 
 @app.route("/")
@@ -80,6 +112,7 @@ def api_seats():
 
 
 @app.route("/register", methods=["POST"])
+@limiter.limit("5 per minute; 20 per hour")
 def register():
     payload = request.get_json(silent=True) or request.form
 
@@ -89,8 +122,25 @@ def register():
     email = (payload.get("email") or "").strip()
     source = (payload.get("source") or "main_form").strip()
 
+    # Обязательные поля
     if not guest1_name or not phone:
         return jsonify({"ok": False, "error": "Укажите имя и телефон"}), 400
+
+    # Ограничения длины (защита от DoS / переполнения)
+    LIMITS = {"guest1_name": 100, "company": 200, "position": 100, "email": 254}
+    for field, max_len in LIMITS.items():
+        val = (payload.get(field) or "")
+        if len(val) > max_len:
+            return jsonify({"ok": False, "error": f"Поле '{field}' слишком длинное"}), 400
+
+    # Телефон: только цифры после нормализации, 10–11 знаков
+    phone_digits = re.sub(r"\D", "", phone)
+    if not (10 <= len(phone_digits) <= 15):
+        return jsonify({"ok": False, "error": "Неверный формат телефона"}), 400
+
+    # Email: базовая проверка формата (если указан)
+    if email and not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
+        return jsonify({"ok": False, "error": "Неверный формат e-mail"}), 400
 
     conn = sqlite3.connect(DB_PATH)
     conn.execute(
@@ -133,4 +183,5 @@ def register():
 init_db()
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    debug = os.environ.get("FLASK_DEBUG", "0") == "1"
+    app.run(debug=debug, port=5000)

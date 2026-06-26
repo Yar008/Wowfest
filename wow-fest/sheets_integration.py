@@ -102,4 +102,4 @@ def _get_sheet():
 
 def _append_via_gspread(payload):
     sheet = _get_sheet()
-    sheet.append_row(_row(payload), value_input_option="USER_ENTERED")
+    sheet.append_row(_row(payload), value_input_option="RAW")
