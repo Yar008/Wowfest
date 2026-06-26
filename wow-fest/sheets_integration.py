@@ -62,13 +62,20 @@ def append_registration(payload):
     )
 
 
+def _clean_phone(raw: str) -> str:
+    """Убираем ведущий '+', чтобы Google Sheets не читал номер как формулу.
+    '+7 (927) 282-38-57'  →  '7 (927) 282-38-57'
+    """
+    return raw.lstrip("+").strip()
+
+
 def _row(payload):
     return [
         payload.get("guest1_name", ""),
         payload.get("guest2_name", ""),
         payload.get("company", ""),
         payload.get("position", ""),
-        payload.get("phone", ""),
+        _clean_phone(payload.get("phone", "")),
         payload.get("email", ""),
     ]
 
