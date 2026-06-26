@@ -20,11 +20,13 @@ from email.mime.multipart import MIMEMultipart
 
 logger = logging.getLogger(__name__)
 
-SMTP_HOST = os.environ.get("WOWFEST_SMTP_HOST", "")
-SMTP_PORT = int(os.environ.get("WOWFEST_SMTP_PORT", "465"))
-SMTP_USER = os.environ.get("WOWFEST_SMTP_USER", "")
-SMTP_PASS = os.environ.get("WOWFEST_SMTP_PASS", "")
-SMTP_FROM = os.environ.get("WOWFEST_SMTP_FROM", SMTP_USER)
+def _get_smtp_config():
+    host = os.environ.get("WOWFEST_SMTP_HOST", "")
+    port = int(os.environ.get("WOWFEST_SMTP_PORT", "465"))
+    user = os.environ.get("WOWFEST_SMTP_USER", "")
+    passwd = os.environ.get("WOWFEST_SMTP_PASS", "")
+    from_addr = os.environ.get("WOWFEST_SMTP_FROM", user)
+    return host, port, user, passwd, from_addr
 
 SUBJECT = "Подтверждение регистрации — WOW! Ивент-Фест"
 
@@ -111,6 +113,8 @@ HTML_BODY = """\
 
 def send_confirmation(to_email: str, guest_name: str) -> None:
     """Отправляет письмо-подтверждение на указанный адрес."""
+    SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM = _get_smtp_config()
+
     if not all([SMTP_HOST, SMTP_USER, SMTP_PASS, to_email]):
         raise RuntimeError("SMTP не настроен или email не указан")
 
