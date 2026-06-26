@@ -181,10 +181,17 @@ def register():
 
     try:
         from sheets_integration import append_registration
-
         append_registration(payload)
     except Exception as exc:  # noqa: BLE001
         app.logger.warning("Sheets sync failed: %s", exc)
+
+    # Отправляем письмо-подтверждение (только если email указан)
+    if email:
+        try:
+            from email_sender import send_confirmation
+            send_confirmation(to_email=email, guest_name=guest1_name)
+        except Exception as exc:  # noqa: BLE001
+            app.logger.warning("Email send failed: %s", exc)
 
     seats = increment_seats()
     remaining = max(seats["total"] - seats["taken"], 0)

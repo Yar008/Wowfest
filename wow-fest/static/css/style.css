@@ -19,7 +19,7 @@
 }
 
 /* Smooth scroll handled by JS — do not set scroll-behavior here */
-html { }
+html { overflow-x: hidden; }
 
 *, *::before, *::after { box-sizing: border-box; }
 
