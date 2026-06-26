@@ -3,7 +3,7 @@ import re
 import sqlite3
 from datetime import datetime, timezone
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 
 try:
     from flask_limiter import Limiter
@@ -114,6 +114,16 @@ def index():
         ga4_id=GA4_MEASUREMENT_ID,
         fb_pixel_id=FB_PIXEL_ID,
     )
+
+
+@app.route("/robots.txt")
+def robots():
+    return send_from_directory(app.static_folder, "robots.txt")
+
+
+@app.route("/sitemap.xml")
+def sitemap():
+    return send_from_directory(app.static_folder, "sitemap.xml")
 
 
 @app.route("/api/seats")

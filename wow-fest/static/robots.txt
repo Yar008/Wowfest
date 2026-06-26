@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fest-event.ru/sitemap.xml
