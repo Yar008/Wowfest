@@ -33,7 +33,16 @@ function doPost(e) {
     var data = JSON.parse(e.postData.contents);
     var row = data.row || [];
 
-    sheet.appendRow([new Date()].concat(row));
+    var newRow = [new Date()].concat(row);
+    var lastRow = sheet.getLastRow() + 1;
+
+    // Сначала выставляем формат телефона (col 6) как plain text,
+    // иначе "+7..." интерпретируется как формула → #ERROR!
+    sheet.getRange(lastRow, 6).setNumberFormat("@");
+
+    // Записываем строку через setValues, а не appendRow,
+    // чтобы формат ячейки уже был установлен
+    sheet.getRange(lastRow, 1, 1, newRow.length).setValues([newRow]);
 
     return ContentService
       .createTextOutput(JSON.stringify({ ok: true }))
