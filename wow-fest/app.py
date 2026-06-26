@@ -4,8 +4,13 @@ import sqlite3
 from datetime import datetime, timezone
 
 from flask import Flask, render_template, request, jsonify
-from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address
+
+try:
+    from flask_limiter import Limiter
+    from flask_limiter.util import get_remote_address
+    _limiter_available = True
+except ImportError:
+    _limiter_available = False
 
 app = Flask(__name__)
 
@@ -19,12 +24,19 @@ def set_security_headers(response):
     return response
 
 
-limiter = Limiter(
-    get_remote_address,
-    app=app,
-    default_limits=[],
-    storage_uri="memory://",
-)
+if _limiter_available:
+    limiter = Limiter(
+        get_remote_address,
+        app=app,
+        default_limits=[],
+        storage_uri="memory://",
+    )
+    def _rate_limit(f):
+        return limiter.limit("5 per minute; 20 per hour")(f)
+else:
+    app.logger.warning("Flask-Limiter not installed — rate limiting disabled")
+    def _rate_limit(f):
+        return f
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 DB_PATH = os.path.join(DATA_DIR, "registrations.db")
@@ -112,7 +124,7 @@ def api_seats():
 
 
 @app.route("/register", methods=["POST"])
-@limiter.limit("5 per minute; 20 per hour")
+@_rate_limit
 def register():
     payload = request.get_json(silent=True) or request.form
 
